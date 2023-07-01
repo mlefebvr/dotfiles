@@ -1,0 +1,28 @@
+set ssl_force_tls = yes
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set signature = "~/.mutt/signature"
+set copy = no
+
+# Key bindings
+bind index G imap-fetch-mail
+
+set from = "<email address>"
+set realname = "<full name>"
+
+# IMAP settings
+set imap_user = "<username>"
+set imap_pass = "<app password>"
+
+# SMTP settings
+set smtp_url = "smtps://<username>@smtp.gmail.com"
+set smtp_pass = "<app password>"
+
+# Remote Gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"

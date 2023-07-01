@@ -1,0 +1,56 @@
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'joshdick/onedark.vim'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'leafgarland/typescript-vim' " TypeScript syntax
+Plug 'maxmellon/vim-jsx-pretty'   " JS and JSX syntax
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
+
+syntax on
+colorscheme onedark
+set nocompatible
+set number
+set expandtab
+set smarttab
+set hlsearch
+set incsearch
+set nobackup
+set nowritebackup
+set noswapfile
+set ignorecase
+set list
+set termguicolors
+set tabstop=2
+set shiftwidth=2
+set laststatus=2
+set foldmethod=syntax
+set foldcolumn=1
+set softtabstop=0
+set autoindent
+set cc=100,120
+
+" NetRW options and mappings
+let g:netrw_banner=0
+let g:netrw_winsize=50
+let g:netrw_liststyle=3
+let g:netrw_altv=1
+
+" Tell vim-fzf to ignore .git and .node_modules
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
+
+" CoC extensions and configurations
+let g:coc_global_extensions = ['coc-tsserver', 'coc-clangd', 'coc-pyright', 'coc-html', 'coc-perl', 'coc-json', 'coc-docker']
+
+" Load the custom mappings file
+source ~/.vimrc-mappings
+
+" Custom commands
+command! JQ :execute '%!jq .'
+command! VT :execute 'below term'
+

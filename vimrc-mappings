@@ -1,0 +1,25 @@
+" Custom mappings for vim
+noremap <leader>x :Lex<CR>
+noremap <leader>b :Buffers<CR>
+noremap <leader>f :Files<CR>
+noremap <leader>n :set rnu<CR>
+noremap <leader>N :set nornu<CR>
+noremap <leader>tt :tabnew<CR>
+noremap <leader>tc :tabclose<CR>
+noremap <leader>tn :tabnext<CR>
+noremap <leader>tp :tabprev<CR>
+noremap <leader>tf :tabfirst<CR>
+noremap <leader>tl :tablast<CR>
+noremap <leader>to :tabonly<CR>
+noremap <leader>te :tabedit
+noremap <leader>tm :tabmove
+noremap <leader>nt :NERDTreeToggle<CR>
+noremap <leader>pi :PlugInstall<CR>
+noremap <leader>pu :PlugUpdate<CR>
+nnoremap <space> za
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
