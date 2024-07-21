@@ -1,5 +1,10 @@
 " Custom mappings for vim
-noremap <leader>x :Lex<CR>
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+noremap <leader>x :NERDTreeToggle<CR>
 noremap <leader>b :Buffers<CR>
 noremap <leader>f :Files<CR>
 noremap <leader>n :set rnu<CR>
@@ -23,3 +28,17 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')"
